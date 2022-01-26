@@ -1,23 +1,25 @@
 interface ConfigDefinition {
-    host: string
-    port: number
-    https: {
-        enabled: boolean
-        key?: string
-        cert?: string
-    }
-    db: {
-        host: string
-        port: number
-        database: string
-    }
-    debug: {
-        stackSize: number
-    }
-    shutdown: {
-        appKill: number
-        serverClose: number
-    }
+  host: string;
+  port: number;
+  https: {
+    enabled: boolean;
+    key?: string;
+    cert?: string;
+  };
+  db: {
+    host: string;
+    port: number;
+    database: string;
+    password: string;
+    user: string;
+  };
+  debug: {
+    stackSize: number;
+  };
+  shutdown: {
+    appKill: number;
+    serverClose: number;
+  };
 }
 
 declare module 'config' {
