@@ -8,6 +8,7 @@ const publicFields = [
   "currency",
   "user_id",
   "date_created",
+  "status"
 ];
 
 export function secureTrim(expense: Expense[]): string {

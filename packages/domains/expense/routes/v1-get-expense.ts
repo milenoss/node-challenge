@@ -9,14 +9,15 @@ const DEFAULT_LIMIT = 10;
 const DEFAULT_OFFSET = 0;
 
 router.get("/expenses", async (req, res, next) => {
-const userID = req.query?.userId;
-let limitRefac = parseInt(req.query?.limit) || DEFAULT_LIMIT;
-const offsetRefac = parseInt(req.query?.offset) || DEFAULT_OFFSET;
-if (limitRefac > 100) {
-  limitRefac = 100; // max limit to 100
+    const userID = req.query?.userId;
+    const status = req.query?.status;
+    let limitRefac = parseInt(req.query?.limit) || DEFAULT_LIMIT;
+    const offsetRefac = parseInt(req.query?.offset) || DEFAULT_OFFSET;
+    if (limitRefac > 100) {
+    limitRefac = 100; // max limit to 100
 }
 const [userError, userExpense] = await to(
-  getUserExpense(userID, limitRefac, offsetRefac)
+  getUserExpense(userID, limitRefac, offsetRefac,status)
 );
   if (userError) {
     return next(

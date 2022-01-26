@@ -7,13 +7,14 @@ import { BadRequest, InternalError, NotFound } from "@nc/utils/errors";
 export async function getUserExpense(
   userId,
   limit,
-  offset
+ offset,
+ status
 ): Promise<Expense[]> {
   if (!userId) {
     throw BadRequest("userId property is missing.");
   }
 
-  const [dbError, rawExpense] = await to(readExpenses(userId, limit, offset));
+  const [dbError, rawExpense] = await to(readExpenses(userId, limit, offset, status ));
   if (dbError) {
     throw InternalError(`Error fetching data from the DB: ${dbError.message}`);
   }
