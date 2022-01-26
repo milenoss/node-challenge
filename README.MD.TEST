@@ -1,0 +1,14 @@
+1. created .env to store database information
+2. created /expense/v1/expenses api, which supports query params
+- userId
+- limit
+- offset
+- status
+
+GET request on /expense/v1/expenses?userId=415d00ba-f6f1-4168-a6a3-169ef748b39c
+will return all expense for this userID
+
+
+what can be done and refactored in future
+1. Use of api documentation and swagger views
+2. Postgres ORM
